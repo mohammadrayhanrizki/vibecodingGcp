@@ -71,8 +71,8 @@ async function submitAuth(e) {
     username.value = ''
     password.value = ''
 
-    // Navigate to arena after short delay so user sees success message
-    setTimeout(() => router.push('/arena'), 800)
+    // Navigate to dashboard after short delay so user sees success message
+    setTimeout(() => router.push('/dashboard'), 800)
   } catch {
     errorMessage.value = 'ERROR_500: Server rejected the handshake. Try again.'
   } finally {

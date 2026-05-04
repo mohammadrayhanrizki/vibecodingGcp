@@ -1,5 +1,9 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+function goBack() { router.push('/dashboard') }
 
 // --- Reactive State ---
 const currentTime  = ref('')
@@ -102,6 +106,16 @@ async function handleSubmit() {
       style="border-color:#39ff14; background-color:#0d0d0d; box-shadow: 0 4px 0 #39ff14;"
     >
       <div class="flex items-center gap-4">
+        <!-- ABORT button -->
+        <button
+          id="abort-mission-btn"
+          @click="goBack"
+          class="border-2 px-3 py-2 cursor-pointer transition-all duration-100 hidden sm:block"
+          style="border-color:#ff5555; background:#1a0000; color:#ff5555; font-family:'Press Start 2P',monospace; font-size:0.5rem; letter-spacing:0.08em; box-shadow:4px 4px 0 #ff5555;"
+          @mouseenter="e => { e.currentTarget.style.transform='translate(2px,2px)'; e.currentTarget.style.boxShadow='2px 2px 0 #ff5555'; e.currentTarget.style.background='#ff5555'; e.currentTarget.style.color='#0d0d0d'; }"
+          @mouseleave="e => { e.currentTarget.style.transform='translate(0,0)';   e.currentTarget.style.boxShadow='4px 4px 0 #ff5555'; e.currentTarget.style.background='#1a0000'; e.currentTarget.style.color='#ff5555'; }"
+        >&lt;- ABORT_MISSION</button>
+
         <div
           class="flex-shrink-0 w-10 h-10 border-2 flex items-center justify-center text-base font-bold"
           style="border-color:#ff00ff; color:#ff00ff; background:#1a0020; box-shadow:3px 3px 0 #ff00ff; font-family:'Press Start 2P',monospace;"
