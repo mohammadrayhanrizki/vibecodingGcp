@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+/* ============================================================
+   THE LEGACY REVIVER — Design System (Tailwind v4 @theme)
+   ============================================================ */
+
+@theme {
+  /* Core color palette */
+  --color-bg-base:       #0f172a;
+  --color-bg-surface:    #121212;
+  --color-bg-panel:      #1a1a2e;
+  --color-bg-editor:     #0d0d0d;
+
+  --color-text-primary:  #f8fafc;
+  --color-text-muted:    #94a3b8;
+  --color-text-dim:      #475569;
+
+  /* Accent palette */
+  --color-neon-pink:     #ff00ff;
+  --color-neon-green:    #39ff14;
+  --color-warning-red:   #ff5555;
+  --color-neon-cyan:     #00ffff;
+  --color-neon-yellow:   #ffe600;
+
+  /* Legacy tokens (kept for backward compat) */
+  --color-neon-orange:   #FF6B00;
+  --color-terminal-black:#0a0a0a;
+  --color-terminal-gray: #1c1c1c;
+
+  /* Fonts */
+  --font-pixel:  'Press Start 2P', monospace;
+  --font-retro:  'VT323', monospace;
+  --font-mono:   'JetBrains Mono', 'Fira Code', monospace;
+}
+
+/* ============================================================
+   Global Resets
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body, #app {
+  height: 100%;
+}
+
+body {
+  background-color: #0f172a;
+  color: #f8fafc;
+  font-family: 'JetBrains Mono', monospace;
+  -webkit-font-smoothing: antialiased;
+  margin: 0;
+}
+
+/* Subtle grid background overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(57, 255, 20, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 255, 20, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+#app {
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   Scrollbar styling
+   ============================================================ */
+::-webkit-scrollbar       { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #121212; }
+::-webkit-scrollbar-thumb { background: #39ff14; }
+::-webkit-scrollbar-thumb:hover { background: #ff00ff; }
